@@ -1,10 +1,10 @@
 import React from "react";
-import "./search-bar.css";
-import logo from "../logo.svg";
+import "./page-home.css";
 import { useState } from "react";
+import logo from "./logo.svg";
 import { Link } from "react-router-dom";
 
-function SearchBar() {
+function PageHome() {
   const [busqueda, setBusqueda] = useState("");
   const buscar = () => {
     setBusqueda(busqueda);
@@ -19,16 +19,13 @@ function SearchBar() {
     e.preventDefault();
     console.log(busqueda);
   };
-
   return (
-    <div>
-      <div className="row">
-        <div className="col-md-2">
+    <div className="container">
+      <div className="row centrado">
+        <div className="col-md-6 centrar">
           <Link to="/">
-            <img src={logo} alt="logo" className="logo-barra" />
+            <img src={logo} alt="logo" id="logo" />
           </Link>
-        </div>
-        <div className="col-md-4">
           <form className="form-inline" name="Form" onSubmit={handleSubmit}>
             <div className="busqueda">
               <input
@@ -40,12 +37,15 @@ function SearchBar() {
                 onChange={handleChange}
               />
             </div>
+            <div className="actions">
+              <button className="btng">search similar artist</button>
+              <button className="btng">search</button>
+            </div>
           </form>
         </div>
       </div>
-      <hr />
     </div>
   );
 }
 
-export default SearchBar;
+export default PageHome;
